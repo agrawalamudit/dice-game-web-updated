@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@300&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
+
+    .screen {
+        height: 100vh;
+        width: 100%;
+        /* background: linear-gradient(to right, #ff9966, #ff5e62); */
+        background-color: #FBFACD;
+
+    }
+
+    #screen1 {
+        display: flex;
+    }
+
+
+    .box {
+        height: 400px;
+        width: 300px;
+        background: url("Screenshot\ 2023-08-18\ 112938.png");
+        /* background-size: 100% 100%; */
+        background-position: center;
+        background-size: cover;
+        border-radius: 20px;
+        margin: auto;
+        position: relative;
+    }
+
+    .box .opac {
+
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+        background-color: white;
+        opacity: 0.3;
+        position: absolute;
+        top: 0;
+    }
+
+    .box .content {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content p {
+        font-family: 'Poppins', sans-serif;
+        /* font-family: 'Roboto', sans-serif; */
+        font-size: 38px;
+        font-weight: 600;
+        line-height: 5rem;
+    }
+
+    #play-btn {
+        padding: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+        background-color: transparent;
+        border-radius: 5px;
+        transition: .1s;
+    }
+
+    #play-btn:hover {
+        padding: 8px;
+        cursor: pointer;
+        background-color: black;
+        color: white;
+
+    }
+
+
+    /* -----screen2----- */
+    #screen2 {
+        display: none;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* .btn-win {} */
+    #screen2 .head
+    {
+        display: flex;
+        justify-content: space-between;
+    }
+    #screen2 .total-score, #screen2 .btn-win
+    {
+        margin: 20px 10px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    #screen2 .total-score
+    {
+        margin: 55px 10px;
+    }
+
+    .error-msg {
+        height: 30px;
+        width: 400px;
+        border-radius: 15px;
+        text-align: center;
+        margin-bottom: 5px;
+        color: white;
+        background-color: transparent;
+    }
+
+    .num-btn {
+        height: 40px;
+        width: 40px;
+        color: black;
+        background: transparent;
+        font-size: 14px;
+    }
+    .num-btn:hover
+    {
+        background-color: black;
+        color: white;
+    }
+
+    #dice-imgs {
+        background-image: url("./dice-six-faces-four.png");
+        background-color: #BEADFA;
+        background-size: 100%;
+        height: 250px;
+        width: 250px;
+        margin: auto;
+        border-radius: 30px;
+    }
+
+</style>
+
+<body>
+    <div class="screen" id="screen1">
+        <div class="box">
+            <div class="opac">
+            </div>
+            <div class="content">
+                <p>Dice Game
+                    <br>
+                    <span><button id="play-btn">PLAY GAME</button></span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="screen" id="screen2">
+        <div class="head">
+            <div class="total-score">
+                <p>0</p>
+                <p>Total score</p>
+            </div>
+    
+            <div class="btn-win">
+                <p class="error-msg"> </p>
+                    <button class="num-btn" id="num1" value="1">1</button>
+                    <button class="num-btn" value="2">2</button>
+                    <button class="num-btn" value="3">3</button>
+                    <button class="num-btn" value="4">4</button>
+                    <button class="num-btn" value="5">5</button>
+                    <button class="num-btn" value="6">6</button>
+                <p>Select Number</p>
+            </div>
+        </div>
+        <br>
+        <div id="dice-imgs" onclick="fooRandom()">
+        </div>
+
+    </div>
+
+</body>
+
+<script src="script.js"></script>
+</html>
