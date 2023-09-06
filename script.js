@@ -1,7 +1,7 @@
 let playBtn = document.getElementById("play-btn");
 let screen1 = document.getElementById("screen1");
 let screen2 = document.getElementById("screen2");
-let selectNum = document.getElementsByClassName("num-btn");
+let btnNumberArray = document.getElementsByClassName("num-btn");
 let msg = document.querySelector(".btn-win p");
 let diceFaces = [
   "./dice-six-faces-one.png",
@@ -21,14 +21,23 @@ playBtn.onclick = () => {
   screen2.style.display = "block";
 };
 
-for (let i = 0; i < selectNum.length; i++) {
-  selectNum[i].onclick = () => {
-    numberValue = Number(selectNum[i].value);
-    selectNum[i].style.backgroundColor = "black";
-    selectNum[i].style.color = "white";
+for (let i = 0; i < btnNumberArray.length; i++) {
+  btnNumberArray[i].onclick = () => {
+    numberValue = Number(btnNumberArray[i].value);
+    btnNumberArray[i].style.backgroundColor = "black";
+    btnNumberArray[i].style.color = "white";
 
     msg.innerHTML = " ";
     msg.style.backgroundColor = "transparent";
+
+    for(let j=0;j<btnNumberArray.length;j++)
+    {
+      if(i != j) 
+      {
+        btnNumberArray[j].style.backgroundColor = "transparent";
+        btnNumberArray[j].style.color = "black";
+      }
+    }
     
     btnNumber = i;
   };
@@ -54,8 +63,8 @@ function fooRandom() {
     totalScore.innerText = Number(temp) - 5;
   }
 
-  selectNum[btnNumber].style.backgroundColor = "transparent";
-  selectNum[btnNumber].style.color = "black";
+  btnNumberArray[btnNumber].style.backgroundColor = "transparent";
+  btnNumberArray[btnNumber].style.color = "black";
 
   btnNumber = null;
   numberValue = null;
